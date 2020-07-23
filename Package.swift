@@ -11,11 +11,16 @@ let package = Package(
     ],
     dependencies: [
         .package(url: "https://github.com/ReactiveX/RxSwift", from: "5.1.0"),
+        .package(url: "https://github.com/OpenCombine/OpenCombine.git", from: "0.10.0")
     ],
     targets: [
         .target(
             name: "RIBs",
-            dependencies: ["RxSwift", "RxRelay"],
+            dependencies: ["RxSwift",
+                           "RxCocoa",
+                           "OpenCombine",
+                           "OpenCombineDispatch",
+                           "OpenCombineFoundation"],
             path: "ios/RIBs"
         ),
         .testTarget(
